@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Styles\iconfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controls\Attach\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Emoji.Wpf" Version="0.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\iconfont.ttf" />
+  </ItemGroup>
+
+</Project>
