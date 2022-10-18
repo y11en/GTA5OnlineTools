@@ -1,5 +1,4 @@
 ﻿using GTA5OnlineTools.Modules;
-using GTA5OnlineTools.Features.SDK;
 using GTA5OnlineTools.Features.Core;
 using GTA5OnlineTools.Common.Utils;
 using GTA5OnlineTools.Common.Helper;
@@ -49,8 +48,6 @@ public partial class ModulesView : UserControl
 
         if (ProcessUtil.IsGTA5Run())
         {
-            GTA5MemInit();
-
             switch (modelName)
             {
                 case "ExternalMenu":
@@ -307,133 +304,5 @@ public partial class ModulesView : UserControl
                 SpeedMeterWindow = null;
             }
         });
-
-        GTA5Mem.CloseHandle();
-    }
-
-    /// <summary>
-    /// GTA5内存模块初始化
-    /// </summary>
-    private void GTA5MemInit()
-    {
-        if (!IsAlreadyRun)
-        {
-            Task.Run(() =>
-            {
-                IsAlreadyRun = true;
-
-                if (GTA5Mem.GTA5ProHandle == IntPtr.Zero)
-                {
-                    if (!GTA5Mem.Initialize())
-                    {
-                        NotifierHelper.Show(NotifierType.Error, "《GTA5》内存模块初始化失败！程序可能无法正常运行");
-                    }
-                    else
-                    {
-                        GTA5MaskInit();
-                    }
-                }
-                else
-                {
-                    GTA5MaskInit();
-                }
-            });
-        }
-    }
-
-    /// <summary>
-    /// GTA5特征码寻址
-    /// </summary>
-    private void GTA5MaskInit()
-    {
-        if (General.WorldPTR == 0)
-        {
-            General.WorldPTR = GTA5Mem.FindPattern(Offsets.Mask.WorldMask);
-            General.WorldPTR = GTA5Mem.Rip_37(General.WorldPTR);
-        }
-
-        if (General.BlipPTR == 0)
-        {
-            General.BlipPTR = GTA5Mem.FindPattern(Offsets.Mask.BlipMask);
-            General.BlipPTR = GTA5Mem.Rip_37(General.BlipPTR);
-        }
-
-        if (General.GlobalPTR == 0)
-        {
-            General.GlobalPTR = GTA5Mem.FindPattern(Offsets.Mask.GlobalMask);
-            General.GlobalPTR = GTA5Mem.Rip_37(General.GlobalPTR);
-        }
-
-        if (General.PlayerChatterNamePTR == 0)
-        {
-            General.PlayerChatterNamePTR = GTA5Mem.FindPattern(Offsets.Mask.PlayerchatterNameMask);
-            General.PlayerChatterNamePTR = GTA5Mem.Rip_37(General.PlayerChatterNamePTR);
-        }
-
-        if (General.PlayerExternalDisplayNamePTR == 0)
-        {
-            General.PlayerExternalDisplayNamePTR = GTA5Mem.FindPattern(Offsets.Mask.PlayerExternalDisplayNameMask);
-            General.PlayerExternalDisplayNamePTR = GTA5Mem.Rip_37(General.PlayerExternalDisplayNamePTR);
-        }
-
-        if (General.NetworkPlayerMgrPTR == 0)
-        {
-            General.NetworkPlayerMgrPTR = GTA5Mem.FindPattern(Offsets.Mask.NetworkPlayerMgrMask);
-            General.NetworkPlayerMgrPTR = GTA5Mem.Rip_37(General.NetworkPlayerMgrPTR);
-        }
-
-        if (General.ReplayInterfacePTR == 0)
-        {
-            General.ReplayInterfacePTR = GTA5Mem.FindPattern(Offsets.Mask.ReplayInterfaceMask);
-            General.ReplayInterfacePTR = GTA5Mem.Rip_37(General.ReplayInterfacePTR);
-        }
-
-        if (General.WeatherPTR == 0)
-        {
-            General.WeatherPTR = GTA5Mem.FindPattern(Offsets.Mask.WeatherMask);
-            General.WeatherPTR = GTA5Mem.Rip_6A(General.WeatherPTR);
-        }
-
-        if (General.UnkModelPTR == 0)
-        {
-            General.UnkModelPTR = GTA5Mem.FindPattern(Offsets.Mask.UnkModelMask);
-            General.UnkModelPTR = GTA5Mem.Rip_37(General.UnkModelPTR);
-        }
-
-        if (General.PickupDataPTR == 0)
-        {
-            General.PickupDataPTR = GTA5Mem.FindPattern(Offsets.Mask.PickupDataMask);
-            General.PickupDataPTR = GTA5Mem.Rip_37(General.PickupDataPTR);
-        }
-
-        if (General.ViewPortPTR == 0)
-        {
-            General.ViewPortPTR = GTA5Mem.FindPattern(Offsets.Mask.ViewPortMask);
-            General.ViewPortPTR = GTA5Mem.Rip_37(General.ViewPortPTR);
-        }
-
-        if (General.AimingPedPTR == 0)
-        {
-            General.AimingPedPTR = GTA5Mem.FindPattern(Offsets.Mask.AimingPedMask);
-            General.AimingPedPTR = GTA5Mem.Rip_37(General.AimingPedPTR);
-        }
-
-        if (General.CCameraPTR == 0)
-        {
-            General.CCameraPTR = GTA5Mem.FindPattern(Offsets.Mask.CCameraMask);
-            General.CCameraPTR = GTA5Mem.Rip_37(General.CCameraPTR);
-        }
-
-        if (General.UnkPTR == 0)
-        {
-            General.UnkPTR = GTA5Mem.FindPattern(Offsets.Mask.UnkMask);
-            General.UnkPTR = GTA5Mem.Rip_37(General.UnkPTR);
-        }
-
-        if (General.LocalScriptsPTR == 0)
-        {
-            General.LocalScriptsPTR = GTA5Mem.FindPattern(Offsets.Mask.LocalScriptsMask);
-            General.LocalScriptsPTR = GTA5Mem.Rip_37(General.LocalScriptsPTR);
-        }
     }
 }
