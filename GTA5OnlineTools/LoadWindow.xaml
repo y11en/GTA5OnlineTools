@@ -55,20 +55,42 @@
                 VerticalAlignment="Bottom"
                 Text="{Binding LoadModel.BuildDate, FallbackValue='2022/01/01 00:00:00'}" />
             <!--  ##########  -->
-            <ui:UiLoadingSpinner
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Diameter="40"
-                IsLoading="True"
-                Thickness="4"
-                Color="{StaticResource BlueColor}" />
-            <TextBlock
-                Margin="0,80,0,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="14"
-                Text="{Binding LoadModel.LoadState, FallbackValue='正在初始化工具...'}"
-                TextWrapping="Wrap" />
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ui:UiLoadingSpinner
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Diameter="40"
+                    IsLoading="True"
+                    Thickness="4"
+                    Color="{StaticResource BlueColor}" />
+                <TextBlock
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    Text="{Binding LoadModel.LoadState, FallbackValue='正在初始化工具...'}"
+                    TextWrapping="Wrap" />
+                <WrapPanel
+                    x:Name="WrapPanel_ExceptionState"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    Visibility="Collapsed">
+                    <Button
+                        Background="#FF5722"
+                        Command="{Binding ButtonClickCommand}"
+                        CommandParameter="InitDefaultPath"
+                        Content="初始化配置文件" />
+                    <Button
+                        Background="#4285F4"
+                        Command="{Binding ButtonClickCommand}"
+                        CommandParameter="OpenDefaultPath"
+                        Content="打开配置文件夹" />
+                    <Button
+                        Background="#EA4335"
+                        Command="{Binding ButtonClickCommand}"
+                        CommandParameter="ExitAPP"
+                        Content="退出程序" />
+                </WrapPanel>
+            </StackPanel>
         </Grid>
     </Grid>
 

@@ -121,7 +121,6 @@ public partial class ToolsView : UserControl
         {
             if (MessageBox.Show("你确定要初始化配置文件吗？", "警告", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                Directory.SetCurrentDirectory(FileUtil.CurrentDirectory_Path);
                 ProcessUtil.CloseThirdProcess();
                 Thread.Sleep(100);
                 FileUtil.DelectDir(FileUtil.Default_Path);

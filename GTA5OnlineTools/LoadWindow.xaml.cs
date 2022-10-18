@@ -3,6 +3,7 @@ using GTA5OnlineTools.Common.Utils;
 using GTA5OnlineTools.Common.Helper;
 
 using Chinese;
+using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5OnlineTools;
 
@@ -16,19 +17,30 @@ public partial class LoadWindow
     /// </summary>
     public LoadModel LoadModel { get; set; } = new();
 
+    /// <summary>
+    /// 第三方辅助功能开关点击命令
+    /// </summary>
+    public RelayCommand<string> ButtonClickCommand { get; private set; }
+
     public LoadWindow()
     {
         InitializeComponent();
-        this.DataContext = this;
     }
 
     private void Window_Load_Loaded(object sender, RoutedEventArgs e)
     {
+        this.DataContext = this;
+
+        ButtonClickCommand = new(ButtonClick);
+
         Task.Run(() =>
         {
             try
             {
-                LoadModel.LoadState = "正在初始化工具，请稍后...";
+                // 关闭第三方进程
+                ProcessUtil.CloseThirdProcess();
+
+                LoadModel.LoadState = "正在初始化工具...";
 
                 LoggerHelper.Info("开始初始化程序...");
                 LoggerHelper.Info($"当前程序版本号 {CoreUtil.ClientVersion}");
@@ -38,9 +50,6 @@ public partial class LoadWindow
                 LoadModel.VersionInfo = CoreUtil.ClientVersion.ToString();
                 // 最后编译时间
                 LoadModel.BuildDate = CoreUtil.ClientBuildTime;
-
-                // 关闭第三方进程
-                ProcessUtil.CloseThirdProcess();
 
                 /////////////////////////////////////////////////////////////////////
 
@@ -128,15 +137,46 @@ public partial class LoadWindow
             }
             catch (Exception ex)
             {
-                LoadModel.LoadState = $"初始化错误，发生了未知异常！程序即将关闭\n{ex.Message}";
+                LoadModel.LoadState = $"初始化错误，发生了未知异常！\n\n{ex.Message}\n\n提示：请清空默认配置文件夹全部文件后重试";
                 LoggerHelper.Error("初始化错误，发生了未知异常", ex);
 
-                Task.Delay(2000).Wait();
                 this.Dispatcher.Invoke(() =>
                 {
-                    Application.Current.Shutdown();
+                    WrapPanel_ExceptionState.Visibility = Visibility.Visible;
                 });
             }
         });
+    }
+
+    private void ButtonClick(string name)
+    {
+        try
+        {
+            switch (name)
+            {
+                case "InitDefaultPath":
+                    {
+                        FileUtil.DelectDir(FileUtil.Default_Path);
+                        Thread.Sleep(100);
+                        FileUtil.DelectDir(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"/BigBaseV2/");
+                        Thread.Sleep(100);
+
+                        App.AppMainMutex.Dispose();
+                        ProcessUtil.OpenPath(FileUtil.Current_Path);
+                        Application.Current.Shutdown();
+                    }
+                    break;
+                case "OpenDefaultPath":
+                    ProcessUtil.OpenPath(FileUtil.Default_Path);
+                    break;
+                case "ExitAPP":
+                    Application.Current.Shutdown();
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            NotifierHelper.ShowException(ex);
+        }
     }
 }

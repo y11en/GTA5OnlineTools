@@ -31,7 +31,7 @@
                 VerticalAlignment="Center"
                 FontSize="14"
                 FontWeight="Bold"
-                Text="{Binding ElementName=Window_StatAutoScripts, Path=Title}" />
+                Text="{Binding ElementName=Window_StatScripts, Path=Title}" />
         </StackPanel>
     </ui:UiWindow.TitleContent>
 
