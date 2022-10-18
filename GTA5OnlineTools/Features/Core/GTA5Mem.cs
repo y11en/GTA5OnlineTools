@@ -1,4 +1,5 @@
-﻿using GTA5OnlineTools.Common.Helper;
+﻿using GTA5OnlineTools.Features.SDK;
+using GTA5OnlineTools.Common.Helper;
 
 namespace GTA5OnlineTools.Features.Core;
 
@@ -40,7 +41,7 @@ public static class GTA5Mem
                 LoggerHelper.Info($"《GTA5》进程数量 {pArray.Length}");
                 foreach (var item in pArray)
                 {
-                    if (item.Modules.Count > 100)
+                    if (item.MainModule.FileVersionInfo.LegalCopyright == "Rockstar Games Inc. (C) 2005-2022 Take Two Interactive. All rights reserved.")
                     {
                         GTA5Process = item;
                         break;
@@ -92,7 +93,26 @@ public static class GTA5Mem
     public static void CloseHandle()
     {
         if (GTA5ProHandle != IntPtr.Zero)
+        {
             Win32.CloseHandle(GTA5ProHandle);
+            GTA5ProHandle = IntPtr.Zero;
+
+            General.WorldPTR = 0;
+            General.BlipPTR = 0;
+            General.GlobalPTR = 0;
+            General.PlayerChatterNamePTR = 0;
+            General.PlayerExternalDisplayNamePTR = 0;
+            General.NetworkPlayerMgrPTR = 0;
+            General.ReplayInterfacePTR = 0;
+            General.WeatherPTR = 0;
+            General.UnkModelPTR = 0;
+            General.PickupDataPTR = 0;
+            General.ViewPortPTR = 0;
+            General.AimingPedPTR = 0;
+            General.CCameraPTR = 0;
+            General.UnkPTR = 0;
+            General.LocalScriptsPTR = 0;
+        }
     }
 
     /// <summary>
