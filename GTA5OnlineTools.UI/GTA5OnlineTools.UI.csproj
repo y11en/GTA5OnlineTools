@@ -20,15 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\Attach\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Emoji.Wpf" Version="0.3.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Fonts\iconfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
 </Project>
