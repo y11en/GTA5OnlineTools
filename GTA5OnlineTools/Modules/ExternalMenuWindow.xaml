@@ -8,10 +8,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://crazyzhang.cn/ui/2022/xaml"
     x:Name="Window_ExternalMenu"
-    Title="GTA5线上小助手 外置菜单"
+    Title="GTA5线上小助手 - 外置菜单"
     Width="1000"
     Height="600"
     CaptionHeight="30"
+    Closing="Window_ExternalMenu_Closing"
+    Loaded="Window_ExternalMenu_Loaded"
     ResizeMode="CanMinimize"
     Style="{StaticResource UiWindowStyle}"
     mc:Ignorable="d">

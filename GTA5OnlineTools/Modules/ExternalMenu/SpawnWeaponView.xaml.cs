@@ -13,7 +13,7 @@ public partial class SpawnWeaponView : UserControl
     {
         InitializeComponent();
         this.DataContext = this;
-        MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
+        ExternalMenuWindow.WindowClosingEvent += ExternalMenuWindow_WindowClosingEvent;
 
         // 武器列表
         for (int i = 0; i < WeaponData.WeaponDataClass.Count; i++)
@@ -30,7 +30,7 @@ public partial class SpawnWeaponView : UserControl
         ComboBox_ImpactExplosion.SelectedIndex = 0;
     }
 
-    private void MainWindow_WindowClosingEvent()
+    private void ExternalMenuWindow_WindowClosingEvent()
     {
         
     }

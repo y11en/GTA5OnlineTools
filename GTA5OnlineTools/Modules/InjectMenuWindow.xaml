@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://crazyzhang.cn/ui/2022/xaml"
     x:Name="Window_InjectMenu"
-    Title="GTA5线上小助手 注入式菜单"
+    Title="GTA5线上小助手 - 注入式菜单"
     Width="1280"
     Height="720"
     MinWidth="1280"

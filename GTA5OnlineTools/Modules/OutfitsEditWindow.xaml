@@ -5,14 +5,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://crazyzhang.cn/ui/2022/xaml"
-    x:Name="Window_Outfits"
-    Title="GTA5线上小助手 角色服装编辑器"
+    x:Name="Window_OutfitsEdit"
+    Title="GTA5线上小助手 - 角色服装编辑器"
     Width="1280"
     Height="720"
     MinWidth="1280"
     MinHeight="720"
-    Closing="Window_Outfits_Closing"
-    Loaded="Window_Outfits_Loaded"
+    Closing="Window_OutfitsEdit_Closing"
+    Loaded="Window_OutfitsEdit_Loaded"
     Style="{StaticResource UiWindowStyle}"
     mc:Ignorable="d">
 
@@ -30,7 +30,7 @@
                 VerticalAlignment="Center"
                 FontSize="14"
                 FontWeight="Bold"
-                Text="{Binding ElementName=Window_Outfits, Path=Title}" />
+                Text="{Binding ElementName=Window_OutfitsEdit, Path=Title}" />
         </StackPanel>
     </ui:UiWindow.TitleContent>
 

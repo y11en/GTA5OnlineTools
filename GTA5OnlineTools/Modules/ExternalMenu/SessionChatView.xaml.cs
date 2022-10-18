@@ -20,13 +20,13 @@ public partial class SessionChatView : UserControl
     {
         InitializeComponent();
         this.DataContext = this;
-        MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
+        ExternalMenuWindow.WindowClosingEvent += ExternalMenuWindow_WindowClosingEvent;
 
         TextBox_InputMessage.Text = "测试文本: 请把游戏中聊天输入法调成英文,否则会漏掉文字.Hello1234,漏掉文字了吗?";
         ReadPlayerName();
     }
 
-    private void MainWindow_WindowClosingEvent()
+    private void ExternalMenuWindow_WindowClosingEvent()
     {
         
     }

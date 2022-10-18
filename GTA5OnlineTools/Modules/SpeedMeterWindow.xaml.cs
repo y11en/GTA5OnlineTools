@@ -15,7 +15,10 @@ public partial class SpeedMeterWindow
     public SpeedMeterWindow()
     {
         InitializeComponent();
+    }
 
+    private void Window_SpeedMeter_Loaded(object sender, RoutedEventArgs e)
+    {
         Task.Run(() =>
         {
             this.Dispatcher.Invoke((Delegate)(() =>
@@ -27,7 +30,10 @@ public partial class SpeedMeterWindow
                 TextBlock_ScreenScale.Text = $"缩放比例 {ScreenMgr.GetScalingRatio()}";
             }));
         });
+    }
 
+    private void Window_SpeedMeter_Closing(object sender, CancelEventArgs e)
+    {
         if (DrawWindow != null)
         {
             DrawWindow.Close();

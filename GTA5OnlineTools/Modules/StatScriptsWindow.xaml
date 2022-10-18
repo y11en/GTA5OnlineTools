@@ -6,14 +6,14 @@
     xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://crazyzhang.cn/ui/2022/xaml"
-    x:Name="Window_StatAutoScripts"
-    Title="GTA5线上小助手 STAT自动化脚本"
+    x:Name="Window_StatScripts"
+    Title="GTA5线上小助手 - STAT自动化脚本"
     Width="1280"
     Height="720"
     MinWidth="1280"
     MinHeight="720"
-    Closing="Window_StatAutoScripts_Closing"
-    Loaded="Window_StatAutoScripts_Loaded"
+    Closing="Window_StatScripts_Closing"
+    Loaded="Window_StatScripts_Loaded"
     Style="{StaticResource UiWindowStyle}"
     mc:Ignorable="d">
 

@@ -13,7 +13,7 @@ public partial class OnlineOptionView : UserControl
     {
         InitializeComponent();
         this.DataContext = this;
-        MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
+        ExternalMenuWindow.WindowClosingEvent += ExternalMenuWindow_WindowClosingEvent;
 
         // Ped列表
         foreach (var item in PedData.PedDataClass)
@@ -23,7 +23,7 @@ public partial class OnlineOptionView : UserControl
         ListBox_PedModel.SelectedIndex = 0;
     }
 
-    private void MainWindow_WindowClosingEvent()
+    private void ExternalMenuWindow_WindowClosingEvent()
     {
         
     }

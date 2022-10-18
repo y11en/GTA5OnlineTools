@@ -35,6 +35,17 @@ public partial class ExternalMenuWindow
     ///////////////////////////////////////////////////////////////
 
     /// <summary>
+    /// 主窗口关闭委托
+    /// </summary>
+    public delegate void WindowClosingDelegate();
+    /// <summary>
+    /// 主窗口关闭事件
+    /// </summary>
+    public static event WindowClosingDelegate WindowClosingEvent;
+
+    ///////////////////////////////////////////////////////////////
+
+    /// <summary>
     /// 主窗口 窗口句柄
     /// </summary>
     private IntPtr ThisWinHandle;
@@ -46,6 +57,15 @@ public partial class ExternalMenuWindow
     public ExternalMenuWindow()
     {
         InitializeComponent();
+    }
+
+    /// <summary>
+    /// 外置菜单窗口加载事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Window_ExternalMenu_Loaded(object sender, RoutedEventArgs e)
+    {
         this.DataContext = this;
 
         // 创建菜单
@@ -53,7 +73,7 @@ public partial class ExternalMenuWindow
         // 绑定菜单切换命令
         NavigateCommand = new(Navigate);
         // 设置主页
-        ContentControl_Main.Content = SelfStateView;
+        ContentControl_Main.Content = ReadMeView;
 
         ///////////////////////////////////////////////////////////////
 
@@ -63,6 +83,16 @@ public partial class ExternalMenuWindow
 
         HotKeys.AddKey(WinVK.DELETE);
         HotKeys.KeyDownEvent += HotKeys_KeyDownEvent;
+    }
+
+    /// <summary>
+    /// 外置菜单窗口关闭事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Window_ExternalMenu_Closing(object sender, CancelEventArgs e)
+    {
+        WindowClosingEvent();
     }
 
     /// <summary>

@@ -13,10 +13,10 @@ public partial class JobHelperView : UserControl
     {
         InitializeComponent();
         this.DataContext = this;
-        MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
+        ExternalMenuWindow.WindowClosingEvent += ExternalMenuWindow_WindowClosingEvent;
     }
 
-    private void MainWindow_WindowClosingEvent()
+    private void ExternalMenuWindow_WindowClosingEvent()
     {
         
     }

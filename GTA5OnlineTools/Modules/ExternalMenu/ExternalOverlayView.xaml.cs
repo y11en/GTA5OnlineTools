@@ -16,10 +16,10 @@ public partial class ExternalOverlayView : UserControl
     {
         InitializeComponent();
         this.DataContext = this;
-        MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
+        ExternalMenuWindow.WindowClosingEvent += ExternalMenuWindow_WindowClosingEvent;
     }
 
-    private void MainWindow_WindowClosingEvent()
+    private void ExternalMenuWindow_WindowClosingEvent()
     {
         overlay?.Dispose();
     }

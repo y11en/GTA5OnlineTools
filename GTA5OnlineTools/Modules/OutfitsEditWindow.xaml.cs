@@ -14,12 +14,12 @@ public partial class OutfitsEditWindow
         InitializeComponent();
     }
 
-    private void Window_Outfits_Loaded(object sender, RoutedEventArgs e)
+    private void Window_OutfitsEdit_Loaded(object sender, RoutedEventArgs e)
     {
         ReadOutfitsData();
     }
 
-    private void Window_Outfits_Closing(object sender, CancelEventArgs e)
+    private void Window_OutfitsEdit_Closing(object sender, CancelEventArgs e)
     {
 
     }

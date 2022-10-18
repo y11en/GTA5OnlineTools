@@ -306,56 +306,59 @@ public partial class ModulesView : UserControl
     /// </summary>
     private void GTA5MemInit()
     {
-        if (!GTA5Mem.Initialize())
+        Task.Run(() =>
         {
-            NotifierHelper.Show(NotifierType.Error, "《GTA5》内存模块初始化失败！程序可能无法正常运行");
-        }
-        else
-        {
-            General.WorldPTR = GTA5Mem.FindPattern(Offsets.Mask.WorldMask);
-            General.WorldPTR = GTA5Mem.Rip_37(General.WorldPTR);
+            if (!GTA5Mem.Initialize())
+            {
+                NotifierHelper.Show(NotifierType.Error, "《GTA5》内存模块初始化失败！程序可能无法正常运行");
+            }
+            else
+            {
+                General.WorldPTR = GTA5Mem.FindPattern(Offsets.Mask.WorldMask);
+                General.WorldPTR = GTA5Mem.Rip_37(General.WorldPTR);
 
-            General.BlipPTR = GTA5Mem.FindPattern(Offsets.Mask.BlipMask);
-            General.BlipPTR = GTA5Mem.Rip_37(General.BlipPTR);
+                General.BlipPTR = GTA5Mem.FindPattern(Offsets.Mask.BlipMask);
+                General.BlipPTR = GTA5Mem.Rip_37(General.BlipPTR);
 
-            General.GlobalPTR = GTA5Mem.FindPattern(Offsets.Mask.GlobalMask);
-            General.GlobalPTR = GTA5Mem.Rip_37(General.GlobalPTR);
+                General.GlobalPTR = GTA5Mem.FindPattern(Offsets.Mask.GlobalMask);
+                General.GlobalPTR = GTA5Mem.Rip_37(General.GlobalPTR);
 
-            General.PlayerChatterNamePTR = GTA5Mem.FindPattern(Offsets.Mask.PlayerchatterNameMask);
-            General.PlayerChatterNamePTR = GTA5Mem.Rip_37(General.PlayerChatterNamePTR);
+                General.PlayerChatterNamePTR = GTA5Mem.FindPattern(Offsets.Mask.PlayerchatterNameMask);
+                General.PlayerChatterNamePTR = GTA5Mem.Rip_37(General.PlayerChatterNamePTR);
 
-            General.PlayerExternalDisplayNamePTR = GTA5Mem.FindPattern(Offsets.Mask.PlayerExternalDisplayNameMask);
-            General.PlayerExternalDisplayNamePTR = GTA5Mem.Rip_37(General.PlayerExternalDisplayNamePTR);
+                General.PlayerExternalDisplayNamePTR = GTA5Mem.FindPattern(Offsets.Mask.PlayerExternalDisplayNameMask);
+                General.PlayerExternalDisplayNamePTR = GTA5Mem.Rip_37(General.PlayerExternalDisplayNamePTR);
 
-            General.NetworkPlayerMgrPTR = GTA5Mem.FindPattern(Offsets.Mask.NetworkPlayerMgrMask);
-            General.NetworkPlayerMgrPTR = GTA5Mem.Rip_37(General.NetworkPlayerMgrPTR);
+                General.NetworkPlayerMgrPTR = GTA5Mem.FindPattern(Offsets.Mask.NetworkPlayerMgrMask);
+                General.NetworkPlayerMgrPTR = GTA5Mem.Rip_37(General.NetworkPlayerMgrPTR);
 
-            General.ReplayInterfacePTR = GTA5Mem.FindPattern(Offsets.Mask.ReplayInterfaceMask);
-            General.ReplayInterfacePTR = GTA5Mem.Rip_37(General.ReplayInterfacePTR);
+                General.ReplayInterfacePTR = GTA5Mem.FindPattern(Offsets.Mask.ReplayInterfaceMask);
+                General.ReplayInterfacePTR = GTA5Mem.Rip_37(General.ReplayInterfacePTR);
 
-            General.WeatherPTR = GTA5Mem.FindPattern(Offsets.Mask.WeatherMask);
-            General.WeatherPTR = GTA5Mem.Rip_6A(General.WeatherPTR);
+                General.WeatherPTR = GTA5Mem.FindPattern(Offsets.Mask.WeatherMask);
+                General.WeatherPTR = GTA5Mem.Rip_6A(General.WeatherPTR);
 
-            General.UnkModelPTR = GTA5Mem.FindPattern(Offsets.Mask.UnkModelMask);
-            General.UnkModelPTR = GTA5Mem.Rip_37(General.UnkModelPTR);
+                General.UnkModelPTR = GTA5Mem.FindPattern(Offsets.Mask.UnkModelMask);
+                General.UnkModelPTR = GTA5Mem.Rip_37(General.UnkModelPTR);
 
-            General.PickupDataPTR = GTA5Mem.FindPattern(Offsets.Mask.PickupDataMask);
-            General.PickupDataPTR = GTA5Mem.Rip_37(General.PickupDataPTR);
+                General.PickupDataPTR = GTA5Mem.FindPattern(Offsets.Mask.PickupDataMask);
+                General.PickupDataPTR = GTA5Mem.Rip_37(General.PickupDataPTR);
 
-            General.ViewPortPTR = GTA5Mem.FindPattern(Offsets.Mask.ViewPortMask);
-            General.ViewPortPTR = GTA5Mem.Rip_37(General.ViewPortPTR);
+                General.ViewPortPTR = GTA5Mem.FindPattern(Offsets.Mask.ViewPortMask);
+                General.ViewPortPTR = GTA5Mem.Rip_37(General.ViewPortPTR);
 
-            General.AimingPedPTR = GTA5Mem.FindPattern(Offsets.Mask.AimingPedMask);
-            General.AimingPedPTR = GTA5Mem.Rip_37(General.AimingPedPTR);
+                General.AimingPedPTR = GTA5Mem.FindPattern(Offsets.Mask.AimingPedMask);
+                General.AimingPedPTR = GTA5Mem.Rip_37(General.AimingPedPTR);
 
-            General.CCameraPTR = GTA5Mem.FindPattern(Offsets.Mask.CCameraMask);
-            General.CCameraPTR = GTA5Mem.Rip_37(General.CCameraPTR);
+                General.CCameraPTR = GTA5Mem.FindPattern(Offsets.Mask.CCameraMask);
+                General.CCameraPTR = GTA5Mem.Rip_37(General.CCameraPTR);
 
-            General.UnkPTR = GTA5Mem.FindPattern(Offsets.Mask.UnkMask);
-            General.UnkPTR = GTA5Mem.Rip_37(General.UnkPTR);
+                General.UnkPTR = GTA5Mem.FindPattern(Offsets.Mask.UnkMask);
+                General.UnkPTR = GTA5Mem.Rip_37(General.UnkPTR);
 
-            General.LocalScriptsPTR = GTA5Mem.FindPattern(Offsets.Mask.LocalScriptsMask);
-            General.LocalScriptsPTR = GTA5Mem.Rip_37(General.LocalScriptsPTR);
-        }
+                General.LocalScriptsPTR = GTA5Mem.FindPattern(Offsets.Mask.LocalScriptsMask);
+                General.LocalScriptsPTR = GTA5Mem.Rip_37(General.LocalScriptsPTR);
+            }
+        });
     }
 }

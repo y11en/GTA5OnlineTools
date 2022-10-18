@@ -6,9 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://crazyzhang.cn/ui/2022/xaml"
     x:Name="Window_SpeedMeter"
-    Title="GTA5线上小助手 车速表"
+    Title="GTA5线上小助手 - 车速表"
     Width="800"
     Height="600"
+    Closing="Window_SpeedMeter_Closing"
+    Loaded="Window_SpeedMeter_Loaded"
     ResizeMode="CanMinimize"
     Style="{StaticResource UiWindowStyle}"
     mc:Ignorable="d">

@@ -18,7 +18,7 @@ public partial class SpawnVehicleView : UserControl
     {
         InitializeComponent();
         this.DataContext = this;
-        MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
+        ExternalMenuWindow.WindowClosingEvent += ExternalMenuWindow_WindowClosingEvent;
 
         // 载具列表
         for (int i = 0; i < VehicleData.VehicleClassData.Count; i++)
@@ -28,7 +28,7 @@ public partial class SpawnVehicleView : UserControl
         ListBox_VehicleClass.SelectedIndex = 0;
     }
 
-    private void MainWindow_WindowClosingEvent()
+    private void ExternalMenuWindow_WindowClosingEvent()
     {
 
     }

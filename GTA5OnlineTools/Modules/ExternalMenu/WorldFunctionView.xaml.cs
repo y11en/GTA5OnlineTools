@@ -15,7 +15,7 @@ public partial class WorldFunctionView : UserControl
     {
         InitializeComponent();
         this.DataContext = this;
-        MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
+        ExternalMenuWindow.WindowClosingEvent += ExternalMenuWindow_WindowClosingEvent;
 
         // 如果配置文件不存在就创建
         if (!File.Exists(FileUtil.F_CustomTPList_Path))
@@ -42,7 +42,7 @@ public partial class WorldFunctionView : UserControl
         ListBox_TeleportInfo.SelectedIndex = 0;
     }
 
-    private void MainWindow_WindowClosingEvent()
+    private void ExternalMenuWindow_WindowClosingEvent()
     {
         SaveConfig();
     }

@@ -32,7 +32,7 @@ public partial class SelfStateView : UserControl
     {
         InitializeComponent();
         this.DataContext = this;
-        MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
+        ExternalMenuWindow.WindowClosingEvent += ExternalMenuWindow_WindowClosingEvent;
 
         new Thread(SelfStateMainThread)
         {
@@ -80,7 +80,7 @@ public partial class SelfStateView : UserControl
         }
     }
 
-    private void MainWindow_WindowClosingEvent()
+    private void ExternalMenuWindow_WindowClosingEvent()
     {
         SaveConfig();
     }

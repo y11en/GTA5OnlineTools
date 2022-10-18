@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://crazyzhang.cn/ui/2022/xaml"
     x:Name="Window_GTAHax"
-    Title="GTA5线上小助手 GTAHax代码导入编辑器"
+    Title="GTA5线上小助手 - GTAHax代码导入编辑器"
     Width="1280"
     Height="720"
     MinWidth="1280"
@@ -16,6 +16,24 @@
     Loaded="Window_GTAHax_Loaded"
     Style="{StaticResource UiWindowStyle}"
     mc:Ignorable="d">
+
+    <ui:UiWindow.TitleContent>
+        <StackPanel
+            VerticalAlignment="Center"
+            DockPanel.Dock="Left"
+            Orientation="Horizontal">
+            <Image
+                Height="20"
+                Margin="5"
+                Source="\Assets\Images\Favicon.ico"
+                Style="{StaticResource ImageStyle_HighQuality}" />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="14"
+                FontWeight="Bold"
+                Text="{Binding ElementName=Window_GTAHax, Path=Title}" />
+        </StackPanel>
+    </ui:UiWindow.TitleContent>
 
     <Grid>
         <Grid.RowDefinitions>

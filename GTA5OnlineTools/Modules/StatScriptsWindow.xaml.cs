@@ -1,6 +1,6 @@
 ﻿using GTA5OnlineTools.Common.Utils;
-using GTA5OnlineTools.Features.Data;
 using GTA5OnlineTools.Features.SDK;
+using GTA5OnlineTools.Features.Data;
 
 namespace GTA5OnlineTools.Modules;
 
@@ -14,7 +14,7 @@ public partial class StatScriptsWindow
         InitializeComponent();
     }
 
-    private void Window_StatAutoScripts_Loaded(object sender, RoutedEventArgs e)
+    private void Window_StatScripts_Loaded(object sender, RoutedEventArgs e)
     {
         // STAT列表
         foreach (var item in StatData.StatDataClass)
@@ -24,7 +24,7 @@ public partial class StatScriptsWindow
         ListBox_STATList.SelectedIndex = 0;
     }
 
-    private void Window_StatAutoScripts_Closing(object sender, CancelEventArgs e)
+    private void Window_StatScripts_Closing(object sender, CancelEventArgs e)
     {
 
     }
