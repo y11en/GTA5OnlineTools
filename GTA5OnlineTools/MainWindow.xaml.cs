@@ -301,21 +301,16 @@ public partial class MainWindow
                 // 如果线上版本号大于本地版本号，则提示更新
                 if (CoreUtil.ServerVersion > CoreUtil.ClientVersion)
                 {
-                    AudioUtil.SP_GTA5_Email.Play();
                     // 打开更新对话框
                     this.Dispatcher.Invoke(() =>
                     {
-                        if (MessageBox.Show($"检测到新版本已发布，是否立即前往更新？\n\n{CoreUtil.UpdateInfo.Latest.Date}\n{CoreUtil.UpdateInfo.Latest.Change}\n\n强烈建议大家使用最新版本呢！",
-                            "发现新版本", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+                        var UpdateWindow = new UpdateWindow
                         {
-                            var UpdateWindow = new UpdateWindow
-                            {
-                                // 设置父窗口
-                                Owner = this
-                            };
-                            // 以对话框形式显示更新窗口
-                            UpdateWindow.ShowDialog();
-                        }
+                            // 设置父窗口
+                            Owner = this
+                        };
+                        // 以对话框形式显示更新窗口
+                        UpdateWindow.ShowDialog();
                     });
                 }
                 else

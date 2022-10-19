@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://crazyzhang.cn/ui/2022/xaml"
     x:Name="Window_Update"
-    Title="GTA5线上小助手 在线更新"
+    Title="GTA5线上小助手 - 在线更新"
     Width="700"
     Height="400"
     Closing="Window_Update_Closing"
@@ -46,15 +46,28 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <!--  ##########  -->
-        <DockPanel LastChildFill="True">
+        <DockPanel>
             <emoji:TextBlock
+                HorizontalAlignment="Left"
+                DockPanel.Dock="Top"
+                Style="{StaticResource TextBlockStyle_Title}"
+                Text="📑 更新日志" />
+            <TextBox
+                x:Name="TextBlock_LatestUpdateInfo"
+                Margin="5,0,5,0"
+                DockPanel.Dock="Top"
+                Foreground="Green"
+                Style="{StaticResource TextBoxStyle_Logger}"
+                Text="最新版本更新日志..." />
+            <emoji:TextBlock
+                HorizontalAlignment="Left"
                 DockPanel.Dock="Top"
                 Style="{StaticResource TextBlockStyle_Title}"
                 Text="📩 下载节点" />
             <ListBox x:Name="ListBox_DownloadAddress" Margin="5,0,5,5" />
         </DockPanel>
         <!--  ##########  -->
-        <DockPanel Grid.Row="1" LastChildFill="True">
+        <DockPanel Grid.Row="1">
             <TextBlock
                 Margin="5"
                 VerticalAlignment="Center"

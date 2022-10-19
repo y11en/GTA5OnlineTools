@@ -1,5 +1,4 @@
 ﻿using GTA5OnlineTools.Modules;
-using GTA5OnlineTools.Features.Core;
 using GTA5OnlineTools.Common.Utils;
 using GTA5OnlineTools.Common.Helper;
 
@@ -18,6 +17,8 @@ public partial class ModulesView : UserControl
     private OutfitsEditWindow OutfitsEditWindow = null;
     private HeistCutWindow HeistCutWindow = null;
     private StatScriptsWindow StatScriptsWindow = null;
+    private HeistPrepsWindow HeistPrepsWindow = null;
+    private CasinoHackWindow CasinoHackWindow = null;
     private SpeedMeterWindow SpeedMeterWindow = null;
 
     public RelayCommand<string> ModelsClickCommand { get; private set; }
@@ -26,11 +27,6 @@ public partial class ModulesView : UserControl
     /// 关闭全部第三方模块窗口委托
     /// </summary>
     public static Action ActionCloseAllModulesWindow;
-
-    /// <summary>
-    /// 内存模块初始化操作单例标志
-    /// </summary>
-    private bool IsAlreadyRun = false;
 
     public ModulesView()
     {
@@ -67,6 +63,12 @@ public partial class ModulesView : UserControl
                     break;
                 case "StatScripts":
                     StatScriptsClick();
+                    break;
+                case "HeistPreps":
+                    HeistPrepsClick();
+                    break;
+                case "CasinoHack":
+                    CasinoHackClick();
                     break;
                 case "SpeedMeter":
                     SpeedMeterClick();
@@ -224,6 +226,54 @@ public partial class ModulesView : UserControl
                 StatScriptsWindow = null;
                 StatScriptsWindow = new StatScriptsWindow();
                 StatScriptsWindow.Show();
+            }
+        }
+    }
+
+    private void HeistPrepsClick()
+    {
+        if (HeistPrepsWindow == null)
+        {
+            HeistPrepsWindow = new HeistPrepsWindow();
+            HeistPrepsWindow.Show();
+        }
+        else
+        {
+            if (HeistPrepsWindow.IsVisible)
+            {
+                HeistPrepsWindow.Topmost = true;
+                HeistPrepsWindow.Topmost = false;
+                HeistPrepsWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                HeistPrepsWindow = null;
+                HeistPrepsWindow = new HeistPrepsWindow();
+                HeistPrepsWindow.Show();
+            }
+        }
+    }
+
+    private void CasinoHackClick()
+    {
+        if (CasinoHackWindow == null)
+        {
+            CasinoHackWindow = new CasinoHackWindow();
+            CasinoHackWindow.Show();
+        }
+        else
+        {
+            if (CasinoHackWindow.IsVisible)
+            {
+                CasinoHackWindow.Topmost = true;
+                CasinoHackWindow.Topmost = false;
+                CasinoHackWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                CasinoHackWindow = null;
+                CasinoHackWindow = new CasinoHackWindow();
+                CasinoHackWindow.Show();
             }
         }
     }

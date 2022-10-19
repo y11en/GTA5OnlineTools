@@ -35,7 +35,7 @@
         </StackPanel>
     </ui:UiWindow.TitleContent>
 
-    <UniformGrid Columns="4">
+    <UniformGrid Columns="3">
         <!--  面板1  -->
         <DockPanel LastChildFill="True">
             <emoji:TextBlock
@@ -83,7 +83,7 @@
                 </TextBlock>
             </StackPanel>
         </StackPanel>
-        <!--  面板4  -->
+
     </UniformGrid>
 
 </ui:UiWindow>

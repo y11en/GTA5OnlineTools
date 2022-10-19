@@ -27,7 +27,9 @@ public partial class UpdateWindow
         try
         {
             if (CoreUtil.ServerVersion != CoreUtil.ClientVersion)
-                AudioUtil.SP_GTA5_Job.Play();
+                AudioUtil.SP_GTA5_Email.Play();
+
+            TextBlock_LatestUpdateInfo.Text = $"{CoreUtil.UpdateInfo.Latest.Date}\n{CoreUtil.UpdateInfo.Latest.Change}";
 
             if (CoreUtil.UpdateInfo != null)
             {

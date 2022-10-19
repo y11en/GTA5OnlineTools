@@ -60,6 +60,22 @@
             Style="{StaticResource ButtonStyle_FuncModule}" />
 
         <ui:UiButtonIcon
+            Title="Heist Preps Edit"
+            Command="{Binding ModelsClickCommand}"
+            CommandParameter="HeistPreps"
+            Content="抢劫前置任务编辑器"
+            Icon="&#xe691;"
+            Style="{StaticResource ButtonStyle_FuncModule}" />
+
+        <ui:UiButtonIcon
+            Title="Casino Hack"
+            Command="{Binding ModelsClickCommand}"
+            CommandParameter="CasinoHack"
+            Content="赌场黑客"
+            Icon="&#xe691;"
+            Style="{StaticResource ButtonStyle_FuncModule}" />
+
+        <ui:UiButtonIcon
             Title="Speed Meter"
             Command="{Binding ModelsClickCommand}"
             CommandParameter="SpeedMeter"

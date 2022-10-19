@@ -7,12 +7,11 @@
     xmlns:ui="http://crazyzhang.cn/ui/2022/xaml"
     x:Name="Window_InjectMenu"
     Title="GTA5线上小助手 - 注入式菜单"
-    Width="1280"
-    Height="720"
-    MinWidth="1280"
-    MinHeight="720"
+    Width="800"
+    Height="600"
     Closing="Window_InjectMenu_Closing"
     Loaded="Window_InjectMenu_Loaded"
+    ResizeMode="CanMinimize"
     Style="{StaticResource UiWindowStyle}"
     mc:Ignorable="d">
 
@@ -34,7 +33,7 @@
         </StackPanel>
     </ui:UiWindow.TitleContent>
 
-    <UniformGrid Columns="4">
+    <UniformGrid Columns="2">
         <!--  面板1  -->
         <DockPanel>
             <ui:UiLabelEmoji Content="关键词列表" DockPanel.Dock="Top" />
@@ -101,7 +100,6 @@
                 提示：英文不区分大小写，QQ、qq、Qq、qQ输入qq一样都可以拦截，关键词尽量精简
             </TextBlock>
         </StackPanel>
-        <!--  面板3  -->
 
     </UniformGrid>
 
