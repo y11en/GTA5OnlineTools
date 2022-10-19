@@ -22,14 +22,19 @@
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
                     项目地址：https://github.com/YimMenu/YimMenu
                 </Paragraph>
+
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
                     配置文件
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
                     默认配置文件路径：C:\Users\用户名\AppData\Roaming\BigBaseV2<LineBreak />
                     如果你不小心修改了某些设置导致Yim无法正常使用，请先卸载注入，到这个文件夹清理里面内容，然后重新注入Yim即可恢复默认设置</Paragraph>
+
+                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
+                    注意事项
+                </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    一键找到该路径：小助手主页面-》工具设置-》BigBaseV2配置目录
+                    最新版本YimMenu文件使用了游戏缓存来获取载具、Ped等数据，第一次使用请先清空BigBaseV2目录的旧版配置文件，然后进入线上模式后注入YimMenu，让其更新缓存，否则可能会导致游戏崩溃
                 </Paragraph>
 
             </FlowDocument>

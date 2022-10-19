@@ -209,7 +209,7 @@ public partial class MainWindow
     /// </summary>
     private void CheckGTA5IsRunThread()
     {
-        bool isExecute = false;
+        bool isExecute = true;
 
         while (Globals.IsAppRunning)
         {
@@ -234,6 +234,7 @@ public partial class MainWindow
             }
             else
             {
+                // 下列功能只会在GTA5停止运行时执行一次，直到下一次GTA5停止运行
                 if (!isExecute)
                 {
                     isExecute = true;
